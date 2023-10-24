@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Criptografia Igor64</title>
+</head>
+<body>
+    <h1>Criptografia Igor64</h1>
+
+    <label for="inputText">Texto:</label><br>
+    <textarea id="inputText" rows="4" cols="50"></textarea><br><br>
+
+    <button onclick="criptografar()">Criptografar</button>
+    <button onclick="descriptografar()">Descriptografar</button><br><br>
+
+    <label for="outputText">Resultado:</label><br>
+    <textarea id="outputText" rows="4" cols="50"></textarea>
+
+    <script>
+        function criptografar() {
+            const inputText = document.getElementById("inputText").value;
+            const outputText = document.getElementById("outputText");
+            outputText.value = inputText.split('').map(criptografarLetra).join(' ');
+        }
+
+        function descriptografar() {
+            const inputText = document.getElementById("inputText").value;
+            const outputText = document.getElementById("outputText");
+            outputText.value = inputText.split(' ').map(descriptografarLetra).join('');
+        }
+
+function criptografarLetra(letra) {
+    const alfabetoIgor64 = {
+        'A': 'igor',
+        'B': 'igori',
+        'C': 'igorig',
+        'D': 'igorigo',
+        'E': 'igorigor',
+        'F': 'igorigori',
+        'G': 'igorigorig',
+        'H': 'igorigorigo',
+        'I': 'igorigorigor',
+        'J': 'igorigorigori',
+        'K': 'igorigorigorig',
+        'L': 'igorigorigorigo',
+        'M': 'igorigorigorigor',
+        'N': 'igorigorigorigori',
+        'O': 'igorigorigorigorig',
+        'P': 'igorigorigorigorigo',
+        'Q': 'igorigorigorigorigor',
+        'R': 'igorigorigorigorigori',
+        'S': 'igorigorigorigorigorig',
+        'T': 'igorigorigorigorigorigo',
+        'U': 'igorigorigorigorigorigor',
+        'V': 'igorigorigorigorigorigori',
+        'W': 'igorigorigorigorigorigorig',
+        'X': 'igorigorigorigorigorigorigo',
+        'Y': 'igorigorigorigorigorigorigor',
+        'Z': 'igorigorigorigorigorigorigori',
+        ' ': ' ' // Espaço não é criptografado
+    };
+
+    return alfabetoIgor64[letra.toUpperCase()] || letra; // Converte para maiúsculas
+}
+function descriptografarLetra(letra) {
+    const alfabetoIgor64 = {
+        'igor': 'A',
+        'igori': 'B',
+        'igorig': 'C',
+        'igorigo': 'D',
+        'igorigor': 'E',
+        'igorigori': 'F',
+        'igorigorig': 'G',
+        'igorigorigo': 'H',
+        'igorigorigor': 'I',
+        'igorigorigori': 'J',
+        'igorigorigorig': 'K',
+        'igorigorigorigo': 'L',
+        'igorigorigorigor': 'M',
+        'igorigorigorigori': 'N',
+        'igorigorigorigorig': 'O',
+        'igorigorigorigorigo': 'P',
+        'igorigorigorigorigor': 'Q',
+        'igorigorigorigorigori': 'R',
+        'igorigorigorigorigorig': 'S',
+        'igorigorigorigorigorigo': 'T',
+        'igorigorigorigorigorigor': 'U',
+        'igorigorigorigorigorigori': 'V',
+        'igorigorigorigorigorigorig': 'W',
+        'igorigorigorigorigorigorigo': 'X',
+        'igorigorigorigorigorigorigor': 'Y',
+        'igorigorigorigorigorigorigori': 'Z',
+        ' ': ' ' // Espaço não é criptografado
+    };
+
+    return alfabetoIgor64[letra.toLowerCase()] || letra; // Converte para minúsculas
+}
+    </script>
+</body>
+</html>
